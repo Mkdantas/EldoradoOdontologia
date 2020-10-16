@@ -1,0 +1,14 @@
+#page-painel{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 25rem auto;
+}
+
+#page-painel main{
+    background: white;
+    height:100%;
+    width:100%;
+    color: black;
+}
+
