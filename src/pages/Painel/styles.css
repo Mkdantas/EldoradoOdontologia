@@ -3,6 +3,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 25rem auto;
+    max-height:100vh;
 }
 
 #page-painel main{
@@ -12,3 +13,11 @@
     color: black;
 }
 
+#page-painel .sidebarPart{
+    height: 100vh;
+    max-height:100vh;
+    position: sticky;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+}

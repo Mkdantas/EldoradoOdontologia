@@ -25,7 +25,7 @@ label{
     margin-top: 0.3rem;
     border: 1px solid var(--color-primary-dark);
     font: 1.6rem 600 Nunito;
-    color: var(--color-primary);
+    color: var(--color-primary-darker);
     outline: 0;
     padding: 0.5rem 0.5rem;
     border-radius: 5px;

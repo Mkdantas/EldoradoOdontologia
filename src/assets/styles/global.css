@@ -6,7 +6,7 @@
     --color-primary-light:#86AFDA;
     --color-primary: #7371AA;
     --color-primary-dark:  #626092;
-    --color-primary-darker: #6842C2;
+    --color-primary-darker: #4a496e;
     --color-secondary: #04D361;
     --color-secondary-dark: #04BF58;
     --color-title-in-primary: #FFFFFF;
@@ -30,6 +30,7 @@
 body {
     color: #fff;
     background: #ebf2f5;
+    max-height: 100vh;
 }
 
 body, input, button, textarea {
