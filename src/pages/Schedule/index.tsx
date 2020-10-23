@@ -1,90 +1,171 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import "./styles.css";
 import { Modal, Button, Form } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import "./styles.css";
 
 function Schedule() {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+
+  const handleClose = () => {
+    setShow(false);
+    setPacientID("");
+    setPacientName("");
+    setPacientTime("");
+    setEditing(false);
+  };
+
   const handleShow = () => setShow(true);
-  
-  const [pacientID, setPacientID] = useState('');
-  const [pacientName, setPacientName] = useState('');
-  const [pacientTime, setPacientTime] = useState('');
-  const [event, setEvent] = useState([
-    {
-      title: `default`,
-      start: '2020-10-21T10:45:00',
-      id: 'draggable-el'
+
+  const [pacientID, setPacientID] = useState("");
+  const [pacientName, setPacientName] = useState("");
+  const [pacientTime, setPacientTime] = useState("");
+  const [event, setEvent] = useState([]);
+  const [eventUpdated, setEventUpdated] = useState(false);
+  const [editedDate, setEditedDate] = useState({
+    view: {
+      calendar: {
+        addEvent(e: object) {
+          return true;
+        },
+        remove() {
+          return true;
+        },
+      },
+    },
+    event: {
+      addEvent(e: object) {
+        return true;
+      },
+      remove() {
+        return true;
+      },
+      setStart(e: any, b: object) {
+        return true;
+      },
+    },
+  });
+  const [editing, setEditing] = useState(false);
+
+  let pacientIDTemporary = "";
+  let pacientNameTemporary = "";
+  var pacientTimeTemporary = pacientTime;
+
+  const handleEvents = (e: any) => {
+    setEvent(e);
+  };
+
+  //will only addEvent after states are updated
+  useEffect(() => {
+    if (editing === true) {
+      editedDate.event.setStart(pacientTime, { maintainDuration: true });
+      setEditing(false);
+    } else {
+      editedDate.view.calendar.addEvent({
+        title: `${pacientID} - ${pacientName}`,
+        start: pacientTime,
+        //id:
+      });
     }
-  ]);
+    setPacientID("");
+    setPacientName("");
+    // eslint-disable-next-line
+    setPacientTime("");
+  }, [eventUpdated]);
 
-
- 
-
-  const createEvent = (e:FormEvent) =>{
+  const createEvent = (e: FormEvent) => {
     e.preventDefault();
-    setEvent([...event,
-    {
-      title: `${pacientID} - ${pacientName}`,
-      start: pacientTime,
-      id: 'draggable-el'
-    }]);
-    console.log(event)
-    handleClose();
-
-
-  }
+    setPacientID(pacientIDTemporary ? pacientIDTemporary : pacientID);
+    setPacientName(pacientNameTemporary ? pacientNameTemporary : pacientName);
+    setPacientTime(pacientTimeTemporary ? pacientTimeTemporary : pacientTime);
+    setEventUpdated(!eventUpdated);
+    setShow(false);
+  };
 
   const ModalContent = () => {
     return (
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Marcar uma consulta</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={createEvent}>
-            <Form.Group >
+            <Form.Group>
               <Form.Label>Código do Paciente</Form.Label>
               <Form.Control
-               className="pacientID"
-               type="text"
-               onChange={async e => await setPacientID(e.target.value)}/>
+                size="lg"
+                className="pacientID"
+                type="text"
+                defaultValue={pacientID}
+                onChange={(e) => (pacientIDTemporary = e.target.value)}
+              />
             </Form.Group>
-            <Form.Group >
+            <Form.Group>
               <Form.Label>Nome do Paciente</Form.Label>
               <Form.Control
-               className="pacientName"
-               type="text"
-               onChange={e => setPacientName(e.target.value)}/>
+                size="lg"
+                className="pacientName"
+                type="text"
+                defaultValue={pacientName}
+                onChange={(e) => (pacientNameTemporary = e.target.value)}
+              />
             </Form.Group>
-            <Form.Group >
+            <Form.Group>
               <Form.Label>Data</Form.Label>
-              <Form.Control 
-              type="datetime-local" 
-              className="pacientTime" 
-              defaultValue={pacientTime}
-              onChange={e => setPacientTime(e.target.value)}/>
+              <Form.Control
+                size="lg"
+                type="datetime-local"
+                className="pacientTime"
+                defaultValue={pacientTime}
+                onChange={(e) => (pacientTimeTemporary = e.target.value)}
+              />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
+            <Button variant="primary" size="lg" type="submit">
+              {editing ? "Atualizar" : "Adicionar"}
+            </Button>{" "}
+            {editing ? (
+              <Button
+                variant="danger"
+                size="lg"
+                onClick={(e) => {
+                  editedDate.event.remove();
+                  handleClose();
+                  console.log(event);
+                }}
+              >
+                Apagar
+              </Button>
+            ) : null}
           </Form>
         </Modal.Body>
       </Modal>
     );
   };
 
-  function openModal(e: any) {
-    var date = e.dateStr.split('-');
+  const openModal = (e: any) => {
+    var date = e.dateStr.split("-");
     date.pop();
-    setPacientTime(date.join('-'));
+    setPacientTime(date.join("-"));
     handleShow();
-  }
+    setEditedDate(e);
+  };
 
+  const openModalEdit = (e: any) => {
+    var currentEventTitle = e.event.title.split("-");
+    var currentEventTime = e.event.startStr.split("-");
+    currentEventTime.pop();
+    setPacientTime(currentEventTime.join("-"));
+    setPacientID(currentEventTitle[0]);
+    setPacientName(currentEventTitle[1]);
+    handleShow();
+    setEditedDate(e);
+    setEditing(true);
+  };
+  
   return (
     <div id="page-schedule">
       {show ? <ModalContent /> : null}
@@ -98,8 +179,9 @@ function Schedule() {
         }}
         slotMinTime={"09:00:00"}
         eventClick={(e) => {
-          console.log("i got clicked");
+          openModalEdit(e);
         }}
+        displayEventTime={false}
         eventMouseEnter={(e) => {
           e.el.style.background = "#4ca8ff";
         }}
@@ -110,7 +192,7 @@ function Schedule() {
           myCustomButton: {
             text: "adicionar novo",
             click: function () {
-              alert("clicked the custom button!");
+              handleShow();
             },
           },
         }}
@@ -126,7 +208,7 @@ function Schedule() {
         editable={true}
         hiddenDays={[0]}
         dateClick={openModal}
-        events={event}
+        eventsSet={handleEvents}
         buttonText={{
           today: "Hoje",
           month: "Mês",
