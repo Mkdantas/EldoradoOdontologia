@@ -73,8 +73,8 @@ function Schedule() {
     }
     setPacientID("");
     setPacientName("");
-    // eslint-disable-next-line
     setPacientTime("");
+        // eslint-disable-next-line
   }, [eventUpdated]);
 
   const createEvent = (e: FormEvent) => {

@@ -1,0 +1,58 @@
+#page-revenue{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-revenue .expenses{
+    display: flex;
+    width: 90%;
+    height: 85%;
+    flex-direction: column;
+}
+
+#page-revenue .expenses .expense-totals{
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+    padding: 2rem 3rem;
+
+}
+
+#page-revenue .expenses .expense-totals div{
+    padding: 1rem 1rem;
+}
+
+#page-revenue .expenses .expense-area{
+    height: 80%;
+    width:100%;
+    border-bottom: 3px solid var(--color-primary);
+    border-top: 3px solid var(--color-primary);
+}
+
+#page-revenue .button-area{
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#page-revenue .button-area .button-add button,
+#page-revenue .button-area .button-date button
+{
+    background: var(--color-primary);
+    border: none;
+    height: 5rem;
+    width: 15rem;
+    margin-left: 2rem;
+    color:white;
+    transition: 0.5s;
+}
+#page-revenue .button-area .button-add button:hover,
+#page-revenue .button-area .button-date button:hover{
+    background: var(--color-secondary);
+}
