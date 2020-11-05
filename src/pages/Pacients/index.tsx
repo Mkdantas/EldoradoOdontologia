@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchHeader from '../../components/SearchHeader';
 import PacientSearchItem from '../../components/PacientSearchItem';
+import { motion } from 'framer-motion';
 
 import logoImg from '../../assets/images/articles_1.jpg';
 
@@ -9,7 +10,10 @@ import './styles.css';
 
 function Pacients() {
   return (
-    <div id="page-pacients">
+    <motion.div initial={{opacity: 0}}
+    exit={{opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }} id="page-pacients">
       <div className="search-header">
       <SearchHeader  title=" Lista de Pacientes"/>
       </div>
@@ -47,7 +51,7 @@ function Pacients() {
          pacientResponsible="Elza Soares de Oliveira"
          />
       </main>
-    </div>
+    </motion.div>
   );
 }
 

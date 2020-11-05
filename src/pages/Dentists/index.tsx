@@ -1,6 +1,7 @@
 import React from 'react';
 import DentistSearchItem from '../../components/DentistSearchItem';
 import SearchHeader from '../../components/SearchHeader';
+import { motion } from 'framer-motion';
 
 import logoImg from '../../assets/images/articles_1.jpg';
 
@@ -9,7 +10,11 @@ import './styles.css';
 
 function Dentists() {
   return (
-    <div id="page-dentists">
+    <motion.div 
+    initial={{opacity: 0}}
+    exit={{opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }} id="page-dentists">
       <div className="search-header">
         <SearchHeader title="Lista de Dentistas"/>
         </div>
@@ -36,7 +41,7 @@ function Dentists() {
             avatar={logoImg}
             />
         </main>
-    </div>
+    </motion.div>
   );
 }
 

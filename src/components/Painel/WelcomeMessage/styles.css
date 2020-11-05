@@ -8,3 +8,8 @@
     flex-direction: column;
     color: var(--color-primary);
 }
+
+#page-welcomemessage h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}

@@ -3,6 +3,7 @@ import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { Modal, Button, Form } from "react-bootstrap";
+import { motion } from 'framer-motion';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -167,7 +168,10 @@ function Schedule() {
   };
   
   return (
-    <div id="page-schedule">
+    <motion.div initial={{opacity: 0}}
+    exit={{opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }} id="page-schedule">
       {show ? <ModalContent /> : null}
       <FullCalendar
         plugins={[interactionPlugin, timeGridPlugin]}
@@ -225,7 +229,7 @@ function Schedule() {
         locale={"pt-br"}
         slotDuration={"00:15:00"}
       />
-    </div>
+    </motion.div>
   );
 }
 

@@ -22,8 +22,18 @@
 
 }
 
+#page-revenue .expenses .expense-totals img{
+    height: 3rem;
+    width: 3rem;
+    margin: 0 2rem;
+}
+
 #page-revenue .expenses .expense-totals div{
     padding: 1rem 1rem;
+}
+
+#page-revenue > div.expenses > div.expense-totals > div:nth-child(2) > *{
+    padding-top: 0.7rem;
 }
 
 #page-revenue .expenses .expense-area{

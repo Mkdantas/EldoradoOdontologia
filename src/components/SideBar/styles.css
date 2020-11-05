@@ -4,7 +4,7 @@
     background: var(--color-background);
     display: flex;
     flex-direction: column;
-    padding: 2.6rem 2.6rem;
+    padding: 2.6rem 0rem 2.6rem 2.6rem;
 }
 
 #page-sidebar .sidebar-link{
@@ -18,10 +18,14 @@
     transition: 0.5s;
     text-align: start;
     cursor: pointer;
+    border-radius: 20px 0px 0px 20px;
 }
 
 #page-sidebar .sidebar-link:hover{
-    color: var(--color-secondary)
+    color: var(--color-secondary);
+    background: var(--color-primary-dark);
+    width: 100%;
+    padding: 1.6rem 1.6rem;
 }
 
 #page-sidebar .sidebar-link-bottom{
@@ -37,9 +41,27 @@
     transition: 0.5s;
     text-align: start;
     cursor: pointer;
+    width: 89%;
+    border-radius: 20px 0px 0px 20px;
 }
 
 #page-sidebar .sidebar-link-bottom:hover{
-    color: var(--color-secondary)
+    color: var(--color-secondary);
+    width: 89%;
+    background: var(--color-primary-dark);
+    padding: 1.6rem 1.6rem;
 }
-
+#page-sidebar .selected{
+    text-decoration: none;
+    font: 600 2rem sans-serif; 
+    border: none;
+    box-shadow: none;
+    transition: 0.5s;
+    text-align: start;
+    cursor: pointer;
+    border-radius: 20px 0px 0px 20px;
+    color: var(--color-secondary);
+    width: 100%;
+    background: var(--color-primary-dark);
+    padding: 1.6rem 1.6rem;
+}

@@ -9,6 +9,8 @@ import './styles.css';
 import Schedule from '../Schedule';
 import Revenue from '../Revenue';
 import WelcomeMessage from '../../components/Painel/WelcomeMessage';
+import PacientPage from '../PacientPage';
+import { AnimatePresence } from 'framer-motion';
 
 
 function Painel() {
@@ -18,14 +20,17 @@ function Painel() {
         <div className="sidebarPart">
         <Route component={SideBar}/>
         </div>
-        <main>
+        <main>  
+        <AnimatePresence>    
         <Switch>
         <Route path="/painel" exact component={WelcomeMessage} />
-        <Route path="/pacients" component={Pacients} />
+        <Route path="/pacients" exact component={Pacients} />
+        <Route path="/pacients/:id" component={PacientPage} />
         <Route path="/dentists" component={Dentists} />
         <Route path="/schedule" component={Schedule} />
         <Route path="/revenue" component={Revenue} />
         </Switch>
+        </AnimatePresence> 
         </main>
         </BrowserRouter>
     </div>

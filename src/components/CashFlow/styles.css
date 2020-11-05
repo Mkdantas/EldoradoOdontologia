@@ -1,0 +1,40 @@
+.entry, .exit{
+    width: 100%;
+    border-bottom: 2px solid #7371aa8a;
+    display: grid;
+    grid-template-columns: 5% 10% 25% 15% 15% 30%;
+    padding-left: 5rem;
+    font: 1.8rem Arial, sans-serif ;
+}
+
+.date{
+    justify-content: center;
+    display:flex;
+}
+
+.entry{
+    background: #04d36134;
+    color: #02632d;
+}
+.exit{
+    background: rgba(255, 0, 0, 0.247);
+    color: rgb(141, 0, 0);
+}
+
+.exit:hover {
+    background: rgba(255, 0, 0, 0.493);
+    cursor: pointer;
+}
+
+.entry:hover{
+    background: #04d361ab;
+    cursor: pointer;
+}
+
+.entry img, .exit img{
+    height: 2rem;
+    width: 2rem ;
+}
+
+
+
