@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import logoImg from '../../assets/images/articles_1.jpg';
 
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 
 function Pacients() {
@@ -18,6 +19,12 @@ function Pacients() {
       <SearchHeader  title=" Lista de Pacientes"/>
       </div>
       <main>
+        <div className="top-bar">
+          <h3>100 Pacientes encontrados!</h3>
+          <Link to="/painel/new-pacient">
+          <button>Adicionar Novo</button>
+          </Link>
+        </div>
         <PacientSearchItem
          id="12678"
          name="Ana Carolina Dantas"

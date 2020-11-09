@@ -10,12 +10,17 @@ import Schedule from '../Schedule';
 import Revenue from '../Revenue';
 import WelcomeMessage from '../../components/Painel/WelcomeMessage';
 import PacientPage from '../PacientPage';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import PacientForm from '../pacientForm';
 
 
 function Painel() {
   return (
-    <div id="page-painel">
+    <motion.div 
+    initial={{opacity: 0}}
+    exit={{opacity: 0}}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }} id="page-painel">
         <BrowserRouter>
         <div className="sidebarPart">
         <Route component={SideBar}/>
@@ -24,16 +29,17 @@ function Painel() {
         <AnimatePresence>    
         <Switch>
         <Route path="/painel" exact component={WelcomeMessage} />
-        <Route path="/pacients" exact component={Pacients} />
-        <Route path="/pacients/:id" component={PacientPage} />
-        <Route path="/dentists" component={Dentists} />
-        <Route path="/schedule" component={Schedule} />
-        <Route path="/revenue" component={Revenue} />
+        <Route path="/painel/pacients" exact component={Pacients} />
+        <Route path="/painel/pacients/:id" component={PacientPage} />
+        <Route path="/painel/new-pacient" component={PacientForm} />
+        <Route path="/painel/dentists" component={Dentists} />
+        <Route path="/painel/schedule" component={Schedule} />
+        <Route path="/painel/revenue" component={Revenue} />
         </Switch>
         </AnimatePresence> 
         </main>
         </BrowserRouter>
-    </div>
+    </motion.div>
   );
 }
 

@@ -19,6 +19,8 @@
     justify-content: flex-end;
     display: flex;
     padding: 2rem 3rem;
+    background: white;
+    border-radius: 0 0 10px 10px;
 
 }
 
@@ -41,6 +43,8 @@
     width:100%;
     border-bottom: 3px solid var(--color-primary);
     border-top: 3px solid var(--color-primary);
+    background: white;
+    border-radius: 10px 10px 0 0;
 }
 
 #page-revenue .button-area{
@@ -54,15 +58,16 @@
 #page-revenue .button-area .button-add button,
 #page-revenue .button-area .button-date button
 {
-    background: var(--color-primary);
+    background: var(--color-primary-dark);
     border: none;
     height: 5rem;
     width: 15rem;
     margin-left: 2rem;
     color:white;
     transition: 0.5s;
+    border-radius: 10px;
 }
 #page-revenue .button-area .button-add button:hover,
 #page-revenue .button-area .button-date button:hover{
-    background: var(--color-secondary);
+    background: var(--color-primary-darker);
 }

@@ -91,6 +91,10 @@
     transition: 0.2s;
 }
 
+#page-item footer button:hover{
+    background: var(--color-primary-darker);
+}
+
 #page-item .linkbutton {
     text-decoration: none;
 }

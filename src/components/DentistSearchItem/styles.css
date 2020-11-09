@@ -112,6 +112,6 @@
 
 #page-item-dentists footer div button:hover,
 #page-item-dentists footer p button:hover{
-    background: var(--color-secondary);
+    background: var(--color-primary-darker);
     color: white;
 }

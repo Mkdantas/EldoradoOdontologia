@@ -49,7 +49,6 @@
     width: calc(100% - 3.9rem);
 }
 
-
-
- 
-
+#page-search input{
+    background: white;
+}

@@ -62,9 +62,9 @@ function Revenue() {
       id: pacientID,
       date: date
     }])
-    if(addTransaction == 'entry'){
+    if(addTransaction === 'entry'){
     setEntry(entry + Number(transactionValue.replace(',','.')))
-    } else if(addTransaction == 'exit'){
+    } else if(addTransaction === 'exit'){
     setExit(exit + Number(transactionValue.replace(',','.')))
     }
     setShow(false);
@@ -88,13 +88,16 @@ function Revenue() {
                 required
               />
             </Form.Group>
-            <Form.Control
+            <Form.Group>
+              <Form.Label>Descrição</Form.Label>
+              <Form.Control
                 size="lg"
                 className="pacientID"
                 type="text"
                 onChange={(e) => transactionName = e.target.value}
                 required
               />
+            </Form.Group>
             <Form.Group>
               <Form.Label>Valor</Form.Label>
               <Form.Control
