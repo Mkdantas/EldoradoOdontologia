@@ -15,7 +15,7 @@ import PacientForm from '../PacientForm';
 import DentistForm from '../DentistForm';
 import DentistPage from '../DentistPage';
 
-
+   
 function Painel() {
   return (
     <motion.div 
