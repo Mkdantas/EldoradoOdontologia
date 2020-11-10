@@ -47,7 +47,7 @@ const DentistSearchItem: React.FC<Dentist> = (Dentist) => {
           })}
           </div>
         <p>
-          <Link  className="linkbutton" to={`/Dentists/Dentist?${Dentist.id}`}>
+          <Link  className="linkbutton" to={`/painel/dentists/${Dentist.id}`}>
             <button>Ver mais</button>
           </Link>
         </p>

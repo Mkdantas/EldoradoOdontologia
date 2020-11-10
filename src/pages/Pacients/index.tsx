@@ -18,13 +18,14 @@ function Pacients() {
       <div className="search-header">
       <SearchHeader  title=" Lista de Pacientes"/>
       </div>
-      <main>
-        <div className="top-bar">
+      <div className="top-bar">
           <h3>100 Pacientes encontrados!</h3>
           <Link to="/painel/new-pacient">
           <button>Adicionar Novo</button>
           </Link>
         </div>
+      <main>
+       
         <PacientSearchItem
          id="12678"
          name="Ana Carolina Dantas"

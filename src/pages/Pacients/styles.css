@@ -15,7 +15,7 @@
     padding: 0 1.6rem;
 }
 
-#page-pacients main .top-bar{
+#page-pacients .top-bar{
     display: flex;
     padding: 1rem 1rem;
     align-items: center;
@@ -24,11 +24,11 @@
     color: var(--color-primary-darker);
 }
 
-#page-pacients main .top-bar h3{
+#page-pacients .top-bar h3{
     margin: 0;
 }
 
-#page-pacients main .top-bar button{
+#page-pacients .top-bar button{
     background: var(--color-primary-dark);
     border: none;
     height: 4rem;
@@ -38,7 +38,7 @@
     border-radius: 10px;
 }
 
-#page-pacients main .top-bar button:hover{
+#page-pacients .top-bar button:hover{
     background: var(--color-primary-darker);
 }
 

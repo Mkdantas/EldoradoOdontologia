@@ -43,6 +43,7 @@ const PacientForm = () =>{
             <Input name="pacientContact" label="Contato 2" />
             <Input name="pacientAddress" label="Endereço do Paciente" />
             <Input name="pacientStartDate" label="Data de Início" type="date" defaultValue={date}/>
+            <Input name="pacientDentist" label="Dentista"/>
             <button type="submit">Enviar</button>
             </form>
             </div>

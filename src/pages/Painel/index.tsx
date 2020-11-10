@@ -11,7 +11,9 @@ import Revenue from '../Revenue';
 import WelcomeMessage from '../../components/Painel/WelcomeMessage';
 import PacientPage from '../PacientPage';
 import { AnimatePresence, motion } from 'framer-motion';
-import PacientForm from '../pacientForm';
+import PacientForm from '../PacientForm';
+import DentistForm from '../DentistForm';
+import DentistPage from '../DentistPage';
 
 
 function Painel() {
@@ -31,7 +33,9 @@ function Painel() {
         <Route path="/painel" exact component={WelcomeMessage} />
         <Route path="/painel/pacients" exact component={Pacients} />
         <Route path="/painel/pacients/:id" component={PacientPage} />
+        <Route path="/painel/dentists/:id" component={DentistPage} />
         <Route path="/painel/new-pacient" component={PacientForm} />
+        <Route path="/painel/new-dentist" component={DentistForm} />
         <Route path="/painel/dentists" component={Dentists} />
         <Route path="/painel/schedule" component={Schedule} />
         <Route path="/painel/revenue" component={Revenue} />
