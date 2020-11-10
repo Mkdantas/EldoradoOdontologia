@@ -20,8 +20,8 @@ function PacientPage({ match }: RouteComponentProps){
       <div className="top-buttons">
         <Link to="/painel/pacients">
           <img src={arrowImg} alt="arrowimg"/>Voltar
-        </Link>
-      </div>
+        </Link> 
+      </div>    
       <div className="profile">
       <div className="profile-card">
         <div className="personal-info">
