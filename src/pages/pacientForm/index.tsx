@@ -49,7 +49,7 @@ const PacientForm = () =>{
             </div>
         </div>
     )
-}
-
+}               
+         
 export default PacientForm;
 
