@@ -8,9 +8,8 @@
     height: 100%;
 }
 
-#page-schedule > div > div.fc-header-toolbar.fc-toolbar > div:nth-child(3) > div button, #page-schedule > div > div.fc-header-toolbar.fc-toolbar > div:nth-child(3) > button,
-#page-schedule > div > div.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr > div:nth-child(1) > button{
-    background: var(--color-primary);
+#page-schedule button{
+    background: var(--color-primary-dark);
     border: none;
 }
 
@@ -29,4 +28,18 @@
 #page-schedule > div > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > td > div > div > table > tbody > tr > th.fc-col-header-cell.fc-day.fc-day-tue.fc-day-today{
     background: #FFFADF;
 }
+
+#page-schedule .fc-col-header-cell-cushion {
+    text-decoration: none;
+    color: var(--color-primary-dark);
+}
+
+#page-schedule .fc-button-active{
+    background: var(--color-primary-darker);
+}
+
+#page-schedule .fc .fc-button-primary:not(:disabled):active:focus, .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+    box-shadow: none;
+}
+
 

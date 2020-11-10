@@ -68,3 +68,33 @@
 #dentist-form-page .dentist-form-page-inputs button:hover{
     background: var(--color-primary-darker);
 }
+
+#dentist-form-page .schedule-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#dentist-form-page .schedule-section .input-block{
+    width: 30rem;
+    align-items: center;
+    display: flex;
+    margin-top: 0;
+    margin-left: 3rem;
+    
+
+}
+
+#dentist-form-page .schedule-section .select-block{
+    width: 30rem;
+}
+
+#dentist-form-page .schedule-section .select-block label{
+    margin: 0;
+}
+
+#dentist-form-page .schedule-section .input-block label{
+    margin: 0;
+    padding: 0;
+}

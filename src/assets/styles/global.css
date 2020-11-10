@@ -36,3 +36,12 @@ body {
 body, input, button, textarea {
     font: 600 18px Nunito, sans-serif;
 }
+
+button:active {
+    outline: none;
+    border: none;
+}
+
+button{
+    border: none;
+}

@@ -203,7 +203,7 @@ function Schedule() {
         headerToolbar={{
           left: "myCustomButton",
           center: "title",
-          right: "today prev,next",
+          right: "timeGridWeek,timeGridDay today prev,next",
         }}
         slotMaxTime={"19:00:00"}
         selectable={true}

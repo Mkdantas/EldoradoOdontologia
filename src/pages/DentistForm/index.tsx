@@ -60,8 +60,8 @@ const DentistForm = () =>{
                 { value: 'Sábado', label: 'Sábado'}
             ]}  
             />
-            <Input name="dentistScheduleTimeStart" label="Início" type="time" defaultValue={date}/>
-            <Input name="dentistScheduleTimeEnd" label="Término" type="time" defaultValue={date}/>
+            <Input name="dentistScheduleTimeStart" label="Início" type="time"/>
+            <Input name="dentistScheduleTimeEnd" label="Término" type="time"/>
             </div>
             <button type="submit">Enviar</button>
             </form>
