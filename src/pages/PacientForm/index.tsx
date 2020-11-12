@@ -8,6 +8,7 @@ import './styles.css';
 const PacientForm = () =>{
 
     var todayDate = formatDate(new Date());
+ //eslint-disable-next-line
   const [date, setDate] = useState(todayDate);
 
   function formatDate(date:any) {

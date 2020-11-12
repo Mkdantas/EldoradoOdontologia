@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import fire from 'firebase';
 
 import logoutImg from '../../assets/images/logout.svg';
 import dentistImg from '../../assets/images/dentist.svg';
@@ -16,6 +17,10 @@ import calendarGreenImg from '../../assets/images/calendarGreen.svg';
 
 function SideBar() {
     const [currentPage, setCurrentPage] = useState(window.location.pathname.split('/')[2]);
+
+    const handleLogout = () =>{
+      fire.auth().signOut();
+    }
     
   return (
     <div id="page-sidebar">
@@ -31,7 +36,7 @@ function SideBar() {
         <Link to="/painel/revenue" onClick={() => setCurrentPage('revenue')} className={currentPage === 'revenue' ? 'selected' : 'sidebar-link'}>
         <img src={currentPage === 'revenue' ? cashFlowGreenImg : cashFlowImg} alt="cashFlow"/> Fluxo de caixa
         </Link>
-        <a href="/" className="sidebar-link-bottom">
+        <a href="/" onClick={handleLogout} className="sidebar-link-bottom">
            <img src={logoutImg} alt="logout"/> Sair
         </a>
     </div>

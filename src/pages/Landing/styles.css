@@ -29,7 +29,7 @@ main{
     transition: 0.4s;
 }
 
-.image-frame[data-isLoading = "true"] img{
+.image-frame[data-isloading = "true"] img{
     position: absolute;
     transform: translate(25vw, 0);
     z-index: 999;
