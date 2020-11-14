@@ -77,7 +77,7 @@ function Pacients() {
         }
 
         setLastVisible(e.docs[e.docs.length - 1]);
-
+        datas.forEach((item:any) => item.name = item.name.join(' '));
         setPacientList(datas);
       });
   }, [db]);
