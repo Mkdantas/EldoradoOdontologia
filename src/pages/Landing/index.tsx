@@ -39,6 +39,9 @@ function Landing() {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(() =>{
+        localStorage.setItem('userEmail', email);
+      })
       .catch(err =>{
         switch(err.code){
           case "auth/invalid-email":

@@ -27,7 +27,7 @@ function Routes() {
     return(
         <AnimatePresence>
         <BrowserRouter>
-        <PrivateRoute path="/painel" loggedIn={loggedIn} component={Painel}/>
+        <PrivateRoute path='/painel' loggedIn={loggedIn} component={Painel}/> 
         <Route path="/" exact component={Landing}/>
         </BrowserRouter>
         </AnimatePresence>

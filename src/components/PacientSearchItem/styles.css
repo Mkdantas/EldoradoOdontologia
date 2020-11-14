@@ -38,7 +38,7 @@
 
 
 #page-item header div .first-info strong{
-    font: 700 2.4rem sans-serif;
+    font: 700 2rem sans-serif;
     display: flex;
     flex-direction: row;
     color: var(--color-text-title);

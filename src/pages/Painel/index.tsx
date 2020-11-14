@@ -14,13 +14,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import PacientForm from '../PacientForm';
 import DentistForm from '../DentistForm';
 import DentistPage from '../DentistPage';
+import submitConfirmed from '../SubmitConfirmed';
 
    
 function Painel() {
   return (
     <motion.div 
     initial={{opacity: 0}}
-    exit={{opacity: 0}}
+    exit={{opacity: 0}} 
     animate={{ opacity: 1 }}
     transition={{ duration: 1 }} id="page-painel">
         <BrowserRouter>
@@ -32,13 +33,14 @@ function Painel() {
         <Switch>
         <Route path="/painel" exact component={WelcomeMessage} />
         <Route path="/painel/pacients" exact component={Pacients} />
-        <Route path="/painel/pacients/:id" component={PacientPage} />
-        <Route path="/painel/dentists/:id" component={DentistPage} />
+        <Route path="/painel/pacients/:id"  component={PacientPage} />
+        <Route path="/painel/dentists/:id"component={DentistPage} />
         <Route path="/painel/new-pacient" component={PacientForm} />
         <Route path="/painel/new-dentist" component={DentistForm} />
         <Route path="/painel/dentists" component={Dentists} />
         <Route path="/painel/schedule" component={Schedule} />
         <Route path="/painel/revenue" component={Revenue} />
+        <Route path="/painel/submit-confirmed" component={submitConfirmed} />
         </Switch>
         </AnimatePresence> 
         </main>
