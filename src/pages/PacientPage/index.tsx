@@ -19,15 +19,15 @@ function PacientPage({ match }: RouteComponentProps) {
   const [profileImage, setProfileImage] = useState("");
   const [status, setStatus] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [dentist, setDentist] = useState('');
 
-  var hash = window.location.href.split("#")[1];
+  var hash = window.location.hash.split("#").join('');
 
   useEffect(() => {
     db.collection("pacients")
-      .where("id", "==", hash)
+      .doc(hash)
       .get()
-      .then((e: any) => {
-        e.forEach((item: any) => {
+      .then((item: any) => {
           setName(item.data()?.name.join(' '));
           setRG(item.data()?.RG);
           setBirth(item.data()?.birth);
@@ -36,13 +36,11 @@ function PacientPage({ match }: RouteComponentProps) {
           setStatus(item.data()?.status);
           setProfileImage(item.data()?.image);
           setStartDate(item.data()?.startDate);
-        });
+          setDentist(item.data()?.dentist)
       })
-      .catch((err) => {
-        console.log("seu erro" + err);
-      });
       //eslint-disable-next-line
   }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -81,6 +79,9 @@ function PacientPage({ match }: RouteComponentProps) {
               </li>
               <li>
                 <span>Data de início:</span> {startDate}
+              </li>
+              <li>
+                <span>Dentista:</span> {dentist}
               </li>
             </div>
           </div>

@@ -36,6 +36,7 @@
     padding-bottom: 1rem;
     font: 600 3rem sans-serif;
     color: var(--color-primary-darker);
+    display: flex;
 }
 
 #dentist-form-page div .title{
@@ -71,12 +72,20 @@
 
 #dentist-form-page .schedule-section{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin-top: 2rem;
 }
 
-#dentist-form-page .schedule-section .input-block{
+#dentist-form-page .schedule-section .outer-scheduler{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+#dentist-form-page .schedule-section .outer-scheduler .input-block{
     width: 30rem;
     align-items: center;
     display: flex;
@@ -86,15 +95,26 @@
 
 }
 
-#dentist-form-page .schedule-section .select-block{
+#dentist-form-page .schedule-section .outer-scheduler  .select-block{
     width: 30rem;
 }
 
-#dentist-form-page .schedule-section .select-block label{
+#dentist-form-page .schedule-section .outer-scheduler  .select-block label{
     margin: 0;
 }
 
-#dentist-form-page .schedule-section .input-block label{
+#dentist-form-page .schedule-section .outer-scheduler .input-block label{
     margin: 0;
     padding: 0;
+}
+
+#dentist-form-page .dentist-form-page-inputs h1{
+    display: flex;
+    justify-content: space-between;
+}
+
+#dentist-form-page .dentist-form-page-inputs h1 span{
+    font-size: 2rem;
+    cursor: pointer;
+
 }

@@ -18,6 +18,7 @@ function Pacients() {
   const searchQuery = (e:any) => {
     e.preventDefault();
     db.collection("pacients")
+      .limit(10)
       .where("name", "array-contains", search)
       .get()
       .then((e) => {
@@ -44,20 +45,21 @@ function Pacients() {
       .startAfter(lastVisible)
       .get()
       .then((e) => {
-        var datas: any = [...pacientList];
+        var datas:any = [...pacientList];
         e.forEach((item) => {
-          datas.push(item.data());
+          var data = item.data();
+          data.name = data.name.join(' ');
+          datas.push(data);
         });
 
+        
         if(datas.length >= 10){
           setNeedLoadMore(true);
         } else {
           setNeedLoadMore(false);
         }
 
-        datas.forEach((item:any) => item.name = item.name.join(' '));
         setLastVisible(e.docs[e.docs.length - 1]);
-
         setPacientList(datas);
       });
   };
@@ -81,8 +83,6 @@ function Pacients() {
         setPacientList(datas);
       });
   }, [db]);
-
-  console.log(pacientList);
 
   return (
     <motion.div
@@ -113,8 +113,8 @@ function Pacients() {
         {pacientList.map((e: any) => {
           return (
             <PacientSearchItem
-              key={e.id + "123"}
-              id={e.id}
+              key={e.ID + "123"}
+              id={e.ID}
               name={e.name}
               avatar={e.image}
               contact={e.contact}
