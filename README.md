@@ -1,5 +1,7 @@
 # Dentist Clinic Management System
 
+![Project image](https://i.ibb.co/N7gRsmV/Screenshot-2023-11-08-215009.png)
+
 Technologies Used: React.js, FullCalendar.io, React Bootstrap, Firebase, OAuth2
 
 The Dentist Clinic Management System is a comprehensive application designed to streamline the operations of a dental clinic. It provides features for managing dentists, patients, appointment schedules, and revenue. The system incorporates the following key features:
